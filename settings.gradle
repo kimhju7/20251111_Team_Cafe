@@ -1,0 +1,9 @@
+rootProject.name = 'sb3_msa3'
+
+include 'gateway-service'
+include 'eureka-server'
+include 'customer-service'
+include 'category-service'
+include 'post-service'
+include 'review-service'
+include 'menu-service'
