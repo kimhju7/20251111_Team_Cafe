@@ -146,13 +146,13 @@
         });
 
         alert("리뷰가 등록되었습니다!");
-        await refreshProductList();
+        await refreshMenuList();
         await showReviews(menuId);  // 리뷰 목록 새로고침
     }
 
     // 리뷰 목록 표시
     async function showReviews(menuId) {
-        const res = await fetch(`${REVIEW_API}/product/${menuId}`);
+        const res = await fetch(`${REVIEW_API}/menu/${menuId}`);
         const reviews = await res.json();
         const container = document.getElementById(`reviews-${menuId}`);
 
@@ -175,8 +175,8 @@
             <small class="text-secondary">${formatted}</small>
           </div>
           <div>
-            <button class="btn btn-outline-secondary btn-sm me-1" onclick="updateReview(${r.id}, ${r.productId})">수정</button>
-            <button class="btn btn-outline-danger btn-sm" onclick="deleteReview(${r.id}, ${r.productId})">삭제</button>
+            <button class="btn btn-outline-secondary btn-sm me-1" onclick="updateReview(${r.id}, ${r.menuId})">수정</button>
+            <button class="btn btn-outline-danger btn-sm" onclick="deleteReview(${r.id}, ${r.menuId})">삭제</button>
           </div>
         </div>
       </div>`;}).join("");
@@ -209,7 +209,7 @@
     }
 
     // 상품 목록 새로고침
-    async function refreshProductList() {
+    async function refreshMenuList() {
         document.getElementById("menu-list").innerHTML = "";
         await new Promise(r => setTimeout(r, 300));
         document.dispatchEvent(new Event("DOMContentLoaded"));
