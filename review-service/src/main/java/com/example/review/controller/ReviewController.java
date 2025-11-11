@@ -16,7 +16,7 @@ public class ReviewController {
     private final ReviewService reviewService;
     private final ReviewRepository reviewRepository;
 
-    @GetMapping("/product/{menuId}")
+    @GetMapping("/menu/{menuId}")
     public List<Review> getReviews(@PathVariable Long menuId) {
         return reviewService.getReviews(menuId);
     }
